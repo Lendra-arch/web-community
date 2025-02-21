@@ -1,0 +1,331 @@
+/* Import Font Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #ffd700;
+  --secondary-color: #000000;
+  --text-color: #ffffff;
+  --background-color: #1a1a1a;
+  --accent-color: #ff4500;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Menggunakan font Poppins */
+    background-color: var(--secondary-color); /* Latar belakang hitam */
+    color: var(--text-color); /* Warna teks putih */
+    margin: 0;
+    padding: 0;
+}
+
+.admin-container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 2rem 0;
+    box-sizing: border-box;
+}
+
+.about-image-section,
+.background-image-section,
+.add-form,
+.form-group {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: var(--background-color); /* Latar belakang gelap untuk section */
+    border-radius: 12px; /* Sudut membulat */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Bayangan untuk efek kedalaman */
+}
+
+.about-image-section h3,
+.background-image-section h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color); /* Warna kuning untuk judul */
+}
+
+.current-about img,
+.current-background img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 4px;
+}
+
+.about-form small,
+.background-form small {
+    display: block;
+    margin-top: 0.5rem;
+    color: #cccccc; /* Warna teks kecil */
+}
+
+.file-name {
+    font-size: 0.9rem;
+    color: #cccccc; /* Warna teks file name */
+    margin-top: 0.5rem;
+}
+
+h1,
+h2 {
+    color: var(--primary-color); /* Warna kuning untuk heading */
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Admin Navigation */
+
+.admin-nav {
+  background-color: var(--secondary-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  position: absolute;
+  top: auto;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+}
+
+.admin-nav.fixed {
+  position: fixed;
+  top: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.admin-nav.hidden {
+  transform: translateY(-100%);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: var(--text-color);
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+#nav-links {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#nav-links li a {
+  text-decoration: none;
+  color: var(--text-color);
+  padding: 10px 15px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#nav-links li a:hover,
+#nav-links li a.active {
+  background-color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  #nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--background-color);
+  }
+
+  #nav-links.active {
+      margin: 20px 0 20px;
+    display: flex;
+  }
+
+
+    .admin-nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--secondary-color);
+        transform: translateY(-100%);
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .admin-nav ul.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .admin-nav ul li {
+        margin: 10px 0;
+    }
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #cccccc; /* Warna label */
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+textarea,
+select {
+    width: 95%;
+    padding: 0.75rem; /* Padding lebih besar untuk input */
+    border: 1px solid #444; /* Border lebih gelap */
+    border-radius: 8px; /* Sudut membulat pada input */
+    font-size: 1rem;
+    background-color: var(--background-color); /* Latar belakang input gelap */
+    color: var(--text-color); /* Warna teks input putih */
+}
+
+button {
+    background-color: var(--primary-color); /* Warna tombol kuning */
+    color: var(--secondary-color); /* Warna teks tombol hitam */
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-family: 'Poppins';
+    font-size: 1rem;
+    border-radius: 8px; /* Sudut membulat pada tombol */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Efek transisi */
+}
+
+button:hover {
+    background-color: var(--primary-color); /* Warna tombol saat hover */
+}
+
+.error {
+    color: #ff6b6b; /* Warna merah untuk pesan error */
+    margin-bottom: 1rem;
+}
+
+.success {
+    color: #51cf66; /* Warna hijau untuk pesan sukses */
+    margin-bottom: 1rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+table th,
+table td {
+    padding: 0.75rem; /* Padding untuk sel tabel */
+    border: 1px solid #444; /* Border lebih gelap */
+    text-align: left;
+}
+
+table th {
+    background-color: var(--background-color); /* Latar belakang header tabel gelap */
+    color: var(--primary-color); /* Warna teks header kuning */
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.gallery-item {
+    background-color: var(--background-color); /* Latar belakang item galeri gelap */
+    padding: 1rem;
+    border-radius: 12px; /* Sudut membulat pada item galeri */
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Bayangan untuk efek kedalaman */
+}
+
+.gallery-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Sudut membulat pada gambar */
+}
+
+.delete-btn {
+    background-color: #ff6b6b; /* Warna tombol hapus merah */
+    color: var(--text-color); /* Warna teks tombol hapus putih */
+    border: none;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+    border-radius: 8px; /* Sudut membulat pada tombol hapus */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #ff4757; /* Warna tombol hapus saat hover */
+}
+
+.theme-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+@media (max-width: 768px) {
+    .admin-nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .admin-nav ul li {
+        margin: 0.5rem 0;
+    }
+
+    .theme-form {
+        grid-template-columns: 1fr;
+    }
+    #admin-content {
+        margin-top: 17%;
+    }
+
+    h2{
+        margin: 8%;
+    }
+}
+
+#admin-content {
+    margin-top: 100px;
+    padding: 0 2rem;
+}
+
+.login-form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: var(--background-color);
+    padding: 2rem;
+}
