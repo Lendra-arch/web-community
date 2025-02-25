@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }) */
   });
 
-        // Menampilkan loading spinner saat halaman dimuat
+ /*       // Menampilkan loading spinner saat halaman dimuat
         window.addEventListener('load', function() {
             const loadingElement = document.getElementById('loading');
 
