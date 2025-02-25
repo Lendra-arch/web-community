@@ -17,12 +17,10 @@
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
-    overflow: hidden;
   }
   .main {
     position: absolute;
     width: 100%; /* Atau gunakan max-width jika ingin membatasi lebar */
-   display: none; /* Konten disembunyikan saat loading */
 }
   /*Loading scene*/
   .loading-overlay {
